@@ -13,7 +13,7 @@ Copyright 2015 Jacob McKinney
 
 
 This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License, version 2, as 
+it under the terms of the GNU General Public License, version 2, as
 published by the Free Software Foundation.
 
 This program is distributed in the hope that it will be useful,
@@ -33,5 +33,5 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 define( 'PPL_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 if ( is_admin() ) {
-	include( PPL_PLUGIN_PATH 'admin.php' );
+	require_once( PPL_PLUGIN_PATH . 'admin.php' );
 }

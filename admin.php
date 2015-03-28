@@ -10,7 +10,7 @@ function ppl_render_admin() {
 
 //Add menu to dashboard
 function ppl_add_menu() {
-	add_menu_page( 'People', 'PPL', '', 'ppl', 'ppl_render_admin', false, 26 );
+	add_menu_page( 'People', 'People', 'manage_options', 'people', 'ppl_render_admin', false, 26 );
 }
 
 add_action( 'admin_menu', 'ppl_add_menu' );
