@@ -5,7 +5,7 @@ Plugin Name: People
 Description: Create elegant member directories.
 Plugin URI: http://jacobmc.com/plugins/people
 Author: Jacob McKinney
-Version: 1.0
+Version: 0.1.0
 Author URI: http://jacobmc.com
 
 
@@ -13,7 +13,7 @@ Copyright 2015 Jacob McKinney
 
 
 This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License, version 2, as
+it under the terms of the GNU General Public License, version 2, as 
 published by the Free Software Foundation.
 
 This program is distributed in the hope that it will be useful,
@@ -35,3 +35,5 @@ define( 'PPL_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 if ( is_admin() ) {
 	require_once( PPL_PLUGIN_PATH . 'admin.php' );
 }
+
+require_once( PPL_PLUGIN_PATH . 'ppl-post-type.php' );
