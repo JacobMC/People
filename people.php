@@ -5,7 +5,7 @@ Plugin Name: People
 Description: Create elegant member directories.
 Plugin URI: http://jacobmc.com/plugins/people
 Author: Jacob McKinney
-Version: 0.1.0
+Version: 0.2.0
 Author URI: http://jacobmc.com
 
 
@@ -30,10 +30,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'PPL_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'PEOPLE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 if ( is_admin() ) {
-	require_once( PPL_PLUGIN_PATH . 'admin.php' );
+	require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-dashboard.php' );
+
+	function run_people_dashboard() {
+		$plugin = new People_Dashboard();
+		$plugin->run();
+	}
+
+	run_people_dashboard();
+
 }
 
-require_once( PPL_PLUGIN_PATH . 'ppl-post-type.php' );
+require_once( PEOPLE_PLUGIN_PATH . 'people-post-type.php' );

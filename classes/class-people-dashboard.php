@@ -2,10 +2,10 @@
 
 class People_Dashboard {
 
-	protected $views
+	protected $views;
 
 	public function __construct() {
-		$this->views = trailingslashit( PPL_PLUGIN_PATH . 'views' );
+		$this->views = trailingslashit( PEOPLE_PLUGIN_PATH . 'views' );
 	}
 
 	public function run() {
@@ -23,15 +23,15 @@ class People_Dashboard {
 			'People', 
 			'manage_options', 
 			'people', 
-			'ppl_options_page', 
+			array( $this, 'display_people_options' ), 
 			false, 
 			26 
 		);
 
 	}
 
-	public function display_ppl_options() {
-		// include display file
+	public function display_people_options() {
+		include_once $this->views . 'display-options.php';
 	}
 
 	private function create_settings() {
