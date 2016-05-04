@@ -4,7 +4,7 @@
 
 <div class="wrap">
 
-	<h2>People Settings</h2>
+	<h2>People</h2>
 
 	<?php settings_errors(); ?>
 
@@ -12,8 +12,8 @@
 
 		<?php
 
-			settings_fields( 'people_group' );
-			do_settings_section( 'people' );
+			settings_fields( 'people_display_options' );
+			do_settings_sections( 'people' );
 			submit_button();
 
 		?>

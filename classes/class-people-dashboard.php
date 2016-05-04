@@ -5,6 +5,7 @@ class People_Dashboard {
 	protected $views;
 
 	public function __construct() {
+		// set filepath for $views
 		$this->views = trailingslashit( PEOPLE_PLUGIN_PATH . 'views' );
 	}
 
@@ -35,7 +36,11 @@ class People_Dashboard {
 	}
 
 	private function create_settings() {
-		// add settings to create
+		
+		$display = new People_Display();
+
+		add_action( 'admin_init', array( $display, 'register' ) );
+
 	}
 
 }

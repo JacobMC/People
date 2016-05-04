@@ -33,7 +33,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 define( 'PEOPLE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 if ( is_admin() ) {
+
 	require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-dashboard.php' );
+	require_once( PEOPLE_PLUGIN_PATH . 'interfaces/interface-people-setting.php' );
+	require_once( PEOPLE_PLUGIN_PATH . 'classes/settings/class-people-display.php' );
 
 	function run_people_dashboard() {
 		$plugin = new People_Dashboard();
