@@ -40,6 +40,7 @@ class People_Dashboard {
 		$display = new People_Display();
 
 		add_action( 'admin_init', array( $display, 'register' ) );
+		register_activation_hook( '/people/people.php', $display->add_defaults() );
 
 	}
 

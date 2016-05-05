@@ -48,10 +48,22 @@ class People_Display extends People_Dashboard implements People_Setting {
 
 	}
 
+	public function add_defaults() {
+
+		$defaults = array(
+			'avatar' => 1,
+			'name' => 1,
+			'bio' => 1
+		);
+
+		add_option( 'people_display', $defaults );
+
+	}
+
+
 	public function display_avatar() {
 
 		$people_options = get_option( 'people_display' );
-		$avatar = isset( $people_options[ 'avatar' ] ) ? $people_options[ 'avatar' ] : '';
 
 		include_once $this->views . 'partials/people-avatar.php';
 
@@ -60,7 +72,6 @@ class People_Display extends People_Dashboard implements People_Setting {
 	public function display_name() {
 
 		$people_options = get_option( 'people_display' );
-		$name = isset( $people_options[ 'name' ] ) ? $people_options[ 'name' ] : '';
 
 		include_once $this->views . 'partials/people-name.php';
 
@@ -69,14 +80,13 @@ class People_Display extends People_Dashboard implements People_Setting {
 	public function display_bio() {
 
 		$people_options = get_option( 'people_display' );
-		$bio = isset( $people_options[ 'bio' ] ) ? $people_options[ 'bio' ] : '';
 
 		include_once $this->views . 'partials/people-bio.php';
 
 	}
 
 	public function sanitize( $input ) {
-
+		// nothing to sanitize...yet
 	}
 
 }
