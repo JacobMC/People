@@ -1,5 +1,16 @@
 <?php 
 
+/**
+ * Displays Settings for People plugin
+ * 
+ * Called by display_people_options() in class-people-dashboard.php
+ * 
+ * @since      1.0.0
+ * 
+ * @subpackage People/views
+ * @package    People
+ */
+
 ?>
 
 <div class="wrap">

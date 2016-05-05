@@ -1,6 +1,8 @@
 <?php
 /**
  * Represents the partial view for users to select whether or not to display a person's bio.
+ * 
+ * Called by display_bio() in class-people-display.php
  *
  * @since  1.0.0
  *

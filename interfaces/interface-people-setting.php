@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Interface for use with WordPress Settings API
+ *
+ *@since      1.0.0
+ *
+ *@subpackage People/interfaces
+ *@package    People
+ */
+
 interface People_Setting {
 
 	public function register();
