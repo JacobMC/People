@@ -8,6 +8,7 @@
  * @package     People
  * 
  */
-?>
 
-<input type="checkbox" id="people-bio" name="people_display[bio]" value="1" <?php checked( 1, $people_options['bio'], false ); ?> />
+$html = '<input type="checkbox" id="people-bio" name="people_display[bio]" value="1"' . checked( 1, $people_options['bio'], false ) . '/>';
+
+echo $html;
