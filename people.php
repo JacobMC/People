@@ -54,4 +54,5 @@ if ( is_admin() ) {
  * @since  1.0.0
  * 
  */
-require_once( PEOPLE_PLUGIN_PATH . 'people-post-type.php' );
+require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-post-type.php' );
+$post_type = new People_Post_Type();
