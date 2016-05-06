@@ -32,9 +32,9 @@ class People_Display extends People_Dashboard implements People_Setting {
 		);
 
 		add_settings_field(
-			'people-avatar',
+			'people-profile-image',
 			'Avatar',
-			array( $this, 'display_avatar' ),
+			array( $this, 'display_profile_image' ),
 			'people',
 			'people-display'
 		);
@@ -75,7 +75,7 @@ class People_Display extends People_Dashboard implements People_Setting {
 	public function add_defaults() {
 
 		$defaults = array(
-			'avatar' => 1,
+			'profile_image' => 1,
 			'name' => 1,
 			'bio' => 1
 		);
@@ -87,11 +87,11 @@ class People_Display extends People_Dashboard implements People_Setting {
 	/**
 	 * Creates checkbox for displaying person's avatar
 	 */
-	public function display_avatar() {
+	public function display_profile_image() {
 
 		$people_options = get_option( 'people_display' );
 
-		include_once $this->views . 'partials/people-avatar.php';
+		include_once $this->views . 'partials/people-profile-image.php';
 
 	}
 
