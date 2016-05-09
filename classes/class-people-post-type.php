@@ -3,6 +3,8 @@
 /**
  * Class People_Post_Type
  * 
+ * Class for creating People custom post type
+ * 
  * @since      1.0.0
  * 
  * @subpackage People/classes

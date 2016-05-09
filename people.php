@@ -23,6 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 // Define constant for plugin file path
 define( 'PEOPLE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
+/**
+ * Require all non-admin plugin dependencies
+ * 
+ * @since      1.0.0
+ * 
+ */
+require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-post-type.php' );
+require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-list.php' );
 
 /**
  * Begins execution of plugin dashboard
@@ -54,5 +62,12 @@ if ( is_admin() ) {
  * @since  1.0.0
  * 
  */
-require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-post-type.php' );
-$post_type = new People_Post_Type();
+$people = new People_Post_Type();
+
+/**
+ * Instantiates the List taxonomy
+ * 
+ * @since      1.0.0
+ * 
+ */
+$list = new People_list();
