@@ -41,24 +41,24 @@ class People_Post_Type {
 		 * @var        array
 		 */
 		$labels = array(
-			'name' => 'People',
-			'singular_name' => 'Person',
-			'add_new' => 'Add New',
-			'all_items' => 'All People',
-			'add_new_item' => 'Add New Person',
-			'edit_item' => 'Edit Person',
-			'new_item' => 'New Person',
-			'view_item' => 'View Person',
-			'search_items' => 'Search People',
-			'not_found' => 'No People Found',
-			'not_found_in_trash' => 'No People were hiding in the trash',
-			'archives' => 'People Archives',
-			'insert_into_item' => 'Insert into profile',
-			'uploaded_to_this_item' => 'Uploaded to this profile',
-			'featured_image' => 'Profile Image',
-			'set_featured_image' => 'Set profile image',
+			'name'					=> 'People',
+			'singular_name'			=> 'Person',
+			'add_new'				=> 'Add New',
+			'all_items'				=> 'All People',
+			'add_new_item'			=> 'Add New Person',
+			'edit_item'				=> 'Edit Person',
+			'new_item'				=> 'New Person',
+			'view_item'				=> 'View Person',
+			'search_items'			=> 'Search People',
+			'not_found'				=> 'No People Found',
+			'not_found_in_trash'	=> 'No People were hiding in the trash',
+			'archives'				=> 'People Archives',
+			'insert_into_item'		=> 'Insert into profile',
+			'uploaded_to_this_item'	=> 'Uploaded to this profile',
+			'featured_image'		=> 'Profile Image',
+			'set_featured_image'	=> 'Set profile image',
 			'remove_featured_image' => 'Remove profile image',
-			'use_featured_image' => 'Use as profile image',
+			'use_featured_image'	=> 'Use as profile image',
 		);
 
 		/**
@@ -80,11 +80,11 @@ class People_Post_Type {
 		 * @var        array
 		 */
 		$args = array(
-			'labels' => $labels,
-			'public' => true,
-			'rewrite' => array( 'slug' => 'people' ),
+			'labels' 	=> $labels,
+			'public' 	=> true,
+			'rewrite' 	=> array( 'slug' => 'people' ),
 			'menu_icon' => 'dashicons-id-alt',
-			'supports' => $supports
+			'supports' 	=> $supports
 		);
 
 		register_post_type( $this::POST_TYPE, $args );
