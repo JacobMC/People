@@ -35,6 +35,11 @@ class People_Post_Type {
 	 */
 	public function custom_post_type() {
 
+		/**
+		 * Defines Labels for People custom post-type
+		 *
+		 * @var        array
+		 */
 		$labels = array(
 			'name' => 'People',
 			'singular_name' => 'Person',
@@ -56,6 +61,11 @@ class People_Post_Type {
 			'use_featured_image' => 'Use as profile image',
 		);
 
+		/**
+		 * Registers what WordPress features People custom post-type supports
+		 *
+		 * @var        array
+		 */
 		$supports = array(
 			'title',
 			'editor',
@@ -64,6 +74,11 @@ class People_Post_Type {
 			'custom-fields'
 		);
 
+		/**
+		 * Defines arguments for registering People custom post-type
+		 *
+		 * @var        array
+		 */
 		$args = array(
 			'labels' => $labels,
 			'public' => true,
