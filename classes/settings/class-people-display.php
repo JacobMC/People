@@ -91,7 +91,7 @@ class People_Display extends People_Dashboard implements People_Setting {
 
 		$people_options = get_option( 'people_display' );
 
-		include_once $this->views . 'partials/people-profile-image.php';
+		include_once $this->views . 'partials/profile-image.php';
 
 	}
 
@@ -102,7 +102,7 @@ class People_Display extends People_Dashboard implements People_Setting {
 
 		$people_options = get_option( 'people_display' );
 
-		include_once $this->views . 'partials/people-name.php';
+		include_once $this->views . 'partials/name.php';
 
 	}
 
@@ -113,7 +113,7 @@ class People_Display extends People_Dashboard implements People_Setting {
 
 		$people_options = get_option( 'people_display' );
 
-		include_once $this->views . 'partials/people-bio.php';
+		include_once $this->views . 'partials/bio.php';
 
 	}
 
