@@ -49,7 +49,7 @@ class People_Shortcode {
 		 */
 		$people_query_args = array(
 			'post_type' => 'ppl-people',
-			'name' => $attributes[ 'name' ]
+			'name' 		=> $attributes[ 'name' ]
 		);
 
 		/**
