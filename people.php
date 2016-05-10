@@ -32,6 +32,7 @@ define( 'PEOPLE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-post-type.php' );
 require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-list.php' );
 require_once( PEOPLE_PLUGIN_PATH . 'classes/shortcodes/class-people-shortcode.php' );
+require_once( PEOPLE_PLUGIN_PATH . 'classes/shortcodes/class-list-shortcode.php' );
 
 /**
  * Begins execution of plugin dashboard
@@ -79,3 +80,10 @@ $list = new People_List();
  * @since      1.0.0
  */
 $people_shortcode = new People_Shortcode();
+
+/**
+ * Instantiates List shortcode class
+ * 
+ * @since      1.0.0
+ */
+$list_shortcode = new List_Shortcode();
