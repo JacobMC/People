@@ -31,6 +31,7 @@ define( 'PEOPLE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
  */
 require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-post-type.php' );
 require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-list.php' );
+require_once( PEOPLE_PLUGIN_PATH . 'classes/shortcodes/class-people-shortcode.php' );
 
 /**
  * Begins execution of plugin dashboard
@@ -57,7 +58,7 @@ if ( is_admin() ) {
 }
 
 /**
- * Instantiates the People post-type
+ * Instantiates the People post-type class
  *
  * @since  1.0.0
  * 
@@ -65,9 +66,16 @@ if ( is_admin() ) {
 $people = new People_Post_Type();
 
 /**
- * Instantiates the List taxonomy
+ * Instantiates the List taxonomy class
  * 
  * @since      1.0.0
  * 
  */
-$list = new People_list();
+$list = new People_List();
+
+/**
+ * Instantiates People shortcode class
+ * 
+ * @since      1.0.0
+ */
+$people_shortcode = new People_Shortcode();
