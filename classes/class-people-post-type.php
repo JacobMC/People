@@ -75,6 +75,17 @@ class People_Post_Type {
 		);
 
 		/**
+		 * Registers meta boxes
+		 */
+		function people_meta_boxes() {
+
+			include PEOPLE_PLUGIN_PATH . 'classes/meta-boxes/class-position-meta-box.php';
+
+			$position = new Position_Meta_Box();
+
+		}
+
+		/**
 		 * Defines arguments for registering People custom post-type
 		 *
 		 * @var        array
@@ -84,7 +95,8 @@ class People_Post_Type {
 			'public' 	=> true,
 			'rewrite' 	=> array( 'slug' => 'people' ),
 			'menu_icon' => 'dashicons-id-alt',
-			'supports' 	=> $supports
+			'supports' 	=> $supports,
+			'register_meta_box_cb'	=> 'people_meta_boxes'
 		);
 
 		register_post_type( $this::POST_TYPE, $args );
