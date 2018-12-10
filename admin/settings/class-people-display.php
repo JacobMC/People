@@ -1,18 +1,30 @@
 <?php
 
 /**
- * Class People_Display
- * 
- * Class for creating settings to determine what properties are 
+ * Class People_Display_Settings
+ *
+ * Class for creating settings to determine what properties are
  * displayed with each person on the front-end
- * 
+ *
  * @since      1.0.0
- * 
+ *
  * @subpackage People/classes/settings
  * @package    People
  */
 
-class People_Display extends People_Dashboard implements People_Setting {
+class People_Display_Settings implements People_Setting {
+
+    /**
+     * The single plugin instance
+     *
+     * @var People_Display_Settings
+     */
+    protected static $_instance = null;
+
+    public function init() {
+        add_action( 'admin_init', [ $this, 'register' ] );
+        register_activation_hook( '/people/people.php', [ $this, 'add_defaults' ] );
+    }
 
 	/**
 	 * Register Setting, Section, and Fields
@@ -68,8 +80,8 @@ class People_Display extends People_Dashboard implements People_Setting {
 
 	/**
 	 * Create defaults to be loaded when plugin is activated.
-	 * 
-	 * Called by register_activation_hook within 
+	 *
+	 * Called by register_activation_hook within
 	 * create_setting() in class-people-dashboard.php
 	 */
 	public function add_defaults() {
@@ -88,43 +100,59 @@ class People_Display extends People_Dashboard implements People_Setting {
 	 * Creates checkbox for displaying person's avatar
 	 */
 	public function display_profile_image() {
-
-		$people_options = get_option( 'people_display' );
-
-		include_once $this->views . 'partials/people-profile-image.php';
-
+		people()->get_template( 'partials/people-profile-image' );
 	}
 
 	/**
 	 * Creates checkbox for displaying person's name
 	 */
 	public function display_name() {
-
-		$people_options = get_option( 'people_display' );
-
-		include_once $this->views . 'partials/people-name.php';
-
+		people()->get_template( 'partials/people-name' );
 	}
 
 	/**
 	 * Creates checkbox for displaying person's bio
 	 */
 	public function display_bio() {
-
-		$people_options = get_option( 'people_display' );
-
-		include_once $this->views . 'partials/people-bio.php';
-
+		people()->get_template( 'partials/people-bio' );
 	}
 
 	/**
 	 * Function to sanitize input
-	 * 
-	 * Empty due to use of checkboxes 
+	 *
+	 * Empty due to use of checkboxes
 	 * Required by interface-people.php
 	 */
 	public function sanitize( $input ) {
 		// nothing to sanitize...yet
 	}
 
+    /**
+     * Main Plugin Instance.
+     *
+     * Ensures only one instance of plugin is loaded or can be loaded.
+     *
+     * @static
+     * @see   people_display_settings()
+     * @return People_Display_Settings - Main instance.
+     */
+    public static function instance() {
+
+        if ( is_null( self::$_instance ) ) {
+            self::$_instance = new self();
+        }
+
+        return self::$_instance;
+    }
+
 }
+
+/**
+ * Global function call for the plugin
+ * @return People_Display_Settings
+ */
+function people_display_settings() {
+    return People_Display_Settings::instance();
+}
+
+people_display_settings()->init();

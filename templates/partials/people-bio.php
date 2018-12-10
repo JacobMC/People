@@ -11,6 +11,7 @@
  * 
  */
 
-$html = '<input type="checkbox" id="people-bio" name="people_display[bio]" value="1"' . checked( 1, $people_options['bio'], false ) . '/>';
+$people_options = get_option( 'people_display' );
+?>
 
-echo $html;
+<input type="checkbox" id="people-bio" name="people_display[bio]" value="1" <?php echo checked( 1, $people_options['bio'], false ); ?> />

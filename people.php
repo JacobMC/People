@@ -1,73 +1,85 @@
 <?php
 
-/**
- * @link       http://jacobmckinney.com/people/
- * @since      1.0.0
- * @package    People
- * 
- * Plugin Name: People
- * Plugin URI: http://jacobmckinney.com/people/
- * Description: Create elegant member directories.
- * Author: Jacob McKinney
- * Author URI: http://jacobmckinney.com/
- * Version: 1.0.0
- * License: GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * 
- * Copyright 2016 Jacob McKinney
- */
-
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
-
-// Define constant for plugin file path
-define( 'PEOPLE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-
-/**
- * Require all non-admin plugin dependencies
- * 
- * @since      1.0.0
- * 
- */
-require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-post-type.php' );
-require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-list.php' );
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
 /**
- * Begins execution of plugin dashboard
+ * Plugin Name: People
+ * Description: Simple directory management
+ * Plugin URI: https://jacobmckinney.com/people
+ * Author: Jacob McKinney
+ * Version: 0.0.1
+ * Author URI: https://jacobmckinney.com/
+ * License: GPL2
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: people
  *
- * Initializes settings pages and settings if user is logged in 
- * and accessing the admin area of the site.
- *
- * @since  1.0.0
- * 
  */
-if ( is_admin() ) {
+class People {
 
-	require_once( PEOPLE_PLUGIN_PATH . 'classes/class-people-dashboard.php' );
-	require_once( PEOPLE_PLUGIN_PATH . 'interfaces/interface-people-setting.php' );
-	require_once( PEOPLE_PLUGIN_PATH . 'classes/settings/class-people-display.php' );
+    /**
+     * The single plugin instance
+     *
+     * @var People
+     */
+    protected static $_instance = null;
 
-	function run_people_dashboard() {
-		$plugin = new People_Dashboard();
-		$plugin->run();
-	}
+    /**
+     * People constructor
+     */
+    public function __construct() {
+        $this->define_constants();
+        $this->includes();
+    }
 
-	run_people_dashboard();
+    /**
+     * Defines plugin constants
+     */
+    private function define_constants() {
+        define( 'PEOPLE_DIR', plugin_dir_path( __FILE__ ) );
+        define( 'PEOPLE_URL', plugin_dir_url( __FILE__ ) );
+    }
+
+    /**
+     * Includes necessary plugin files
+     */
+    private function includes() {
+        include_once( 'includes/class-people-post-type.php' );
+        include_once( 'admin/class-people-dashboard.php' );
+    }
+
+    public function get_template( $template ) {
+        include_once PEOPLE_DIR . 'templates/' . $template . '.php';
+    }
+
+    /**
+     * Main Plugin Instance.
+     *
+     * Ensures only one instance of plugin is loaded or can be loaded.
+     *
+     * @static
+     * @see   people()
+     * @return People - Main instance.
+     */
+    public static function instance() {
+
+        if ( is_null( self::$_instance ) ) {
+            self::$_instance = new self();
+        }
+
+        return self::$_instance;
+    }
 
 }
 
 /**
- * Instantiates the People post-type
- *
- * @since  1.0.0
- * 
+ * Global function call for the plugin
+ * @return People
  */
-$people = new People_Post_Type();
+function people() {
+    return People::instance();
+}
 
-/**
- * Instantiates the List taxonomy
- * 
- * @since      1.0.0
- * 
- */
-$list = new People_list();
+people();
