@@ -1,12 +1,14 @@
-<?php 
+<?php
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Displays Settings for People plugin
- * 
+ *
  * Called by display_people_options() in class-people-dashboard.php
- * 
+ *
  * @since      1.0.0
- * 
+ *
  * @subpackage People/views
  * @package    People
  */

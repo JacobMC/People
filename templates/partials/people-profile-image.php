@@ -1,4 +1,7 @@
 <?php
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * Represents the partial view for users to select whether or not to display a person's profile image.
  * 

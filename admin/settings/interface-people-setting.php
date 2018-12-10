@@ -1,4 +1,6 @@
 <?php
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Interface for use with WordPress Settings API

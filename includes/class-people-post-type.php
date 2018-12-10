@@ -1,4 +1,6 @@
 <?php
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Class People_Post_Type
