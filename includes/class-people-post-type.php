@@ -23,12 +23,9 @@ class People_Post_Type {
     protected static $_instance = null;
 
     /**
-     * Sets POST_TYPE constant
-     * Used by register_post_type() in custom_post_type()
-     *
-     * @var        string
+     * Post type slug
      */
-    const POST_TYPE = 'people';
+    public $slug = 'people';
 
     /**
      * Hooks into WordPress
@@ -66,9 +63,7 @@ class People_Post_Type {
         $supports = array(
             'title',
             'editor',
-            'excerpt',
             'thumbnail',
-            'custom-fields'
         );
 
         $args = array(
@@ -79,7 +74,7 @@ class People_Post_Type {
             'supports' => $supports
         );
 
-        register_post_type( $this::POST_TYPE, $args );
+        register_post_type( $this->slug, $args );
     }
 
     /**

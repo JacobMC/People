@@ -45,6 +45,7 @@ class People {
     private function includes() {
         include_once( 'includes/class-people-post-type.php' );
         include_once( 'admin/class-people-dashboard.php' );
+        include_once( 'admin/class-people-meta-boxes.php' );
     }
 
     public function get_template( $template ) {
